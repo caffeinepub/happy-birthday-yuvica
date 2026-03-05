@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom Font Faces ─────────────────────────────────────────── */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design Tokens ─────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --radius: 1.25rem;
+
+    /* Core palette — Kawaii Birthday */
+    --background: 0.98 0.008 340;
+    --foreground: 0.22 0.04 320;
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.04 320;
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.04 320;
+    --primary: 0.62 0.22 340;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.94 0.06 300;
+    --secondary-foreground: 0.22 0.04 320;
+    --muted: 0.96 0.03 300;
+    --muted-foreground: 0.5 0.05 320;
+    --accent: 0.88 0.12 60;
+    --accent-foreground: 0.22 0.04 320;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.9 0.06 320;
+    --input: 0.9 0.06 320;
+    --ring: 0.62 0.22 340;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.22 0.04 320;
+    --sidebar-primary: 0.62 0.22 340;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.94 0.06 300;
+    --sidebar-accent-foreground: 0.22 0.04 320;
+    --sidebar-border: 0.9 0.06 320;
+    --sidebar-ring: 0.62 0.22 340;
+
+    /* Custom birthday tokens */
+    --bday-pink: oklch(0.78 0.18 345);
+    --bday-pink-light: oklch(0.93 0.08 345);
+    --bday-purple: oklch(0.68 0.18 300);
+    --bday-lavender: oklch(0.88 0.08 295);
+    --bday-gold: oklch(0.82 0.18 85);
+    --bday-gold-light: oklch(0.94 0.1 85);
+    --bday-mint: oklch(0.9 0.1 160);
+    --bday-rose: oklch(0.72 0.2 355);
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* ── Global Scroll ─────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Background Animation ──────────────────────────────────────── */
+@keyframes bgShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0.4; }
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 10px oklch(0.82 0.18 85 / 0.6), 0 0 30px oklch(0.82 0.18 85 / 0.4); }
+  50%       { text-shadow: 0 0 25px oklch(0.82 0.18 85 / 0.9), 0 0 60px oklch(0.82 0.18 85 / 0.6), 0 0 90px oklch(0.78 0.18 345 / 0.4); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%       { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes heartFloat {
+  0%   { transform: translateY(0) scale(1) rotate(-10deg); opacity: 0.8; }
+  50%  { transform: translateY(-50px) scale(1.1) rotate(10deg); opacity: 0.9; }
+  100% { transform: translateY(-110px) scale(0.8) rotate(-5deg); opacity: 0; }
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(3deg); }
+  80%  { transform: scale(0.95) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-60px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(60px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes emojiDance {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25%       { transform: translateY(-10px) rotate(-8deg) scale(1.1); }
+  75%       { transform: translateY(-5px) rotate(8deg) scale(1.05); }
+}
+
+@keyframes sparkleRotate {
+  0%   { transform: rotate(0deg) scale(1); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: rotate(360deg) scale(0); opacity: 0; }
+}
+
+@keyframes ribbonWave {
+  0%, 100% { transform: skewX(0deg); }
+  25%  { transform: skewX(3deg); }
+  75%  { transform: skewX(-3deg); }
+}
+
+@keyframes confettiBurst {
+  0%   { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0.3); opacity: 0; }
+}
+
+@keyframes starSpin {
+  0%   { transform: rotate(0deg) scale(0.5); opacity: 0; }
+  50%  { opacity: 1; transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(0.5); opacity: 0; }
+}
+
+@keyframes cardFlip {
+  0%   { transform: perspective(600px) rotateY(0deg); }
+  100% { transform: perspective(600px) rotateY(180deg); }
+}
+
+@keyframes cardFlipBack {
+  0%   { transform: perspective(600px) rotateY(180deg); }
+  100% { transform: perspective(600px) rotateY(360deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+@keyframes rainbowText {
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* ── Utility animation classes ─────────────────────────────────── */
+.animate-float-bounce {
+  animation: floatBounce 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(0.78 0.18 345),
+    oklch(0.82 0.18 85),
+    oklch(0.68 0.18 300),
+    oklch(0.72 0.2 355),
+    oklch(0.82 0.18 85),
+    oklch(0.78 0.18 345)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-emoji-dance {
+  display: inline-block;
+  animation: emojiDance 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+}
+
+/* ── Card flip ─────────────────────────────────────────────────── */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1.25rem;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ── Gradient background ───────────────────────────────────────── */
+.birthday-bg {
+  background: linear-gradient(
+    135deg,
+    oklch(0.95 0.05 345),
+    oklch(0.93 0.06 300),
+    oklch(0.96 0.04 270),
+    oklch(0.94 0.05 345)
+  );
+  background-size: 400% 400%;
+  animation: bgShift 12s ease infinite;
+}
+
+/* ── Sparkle dots ──────────────────────────────────────────────── */
+.sparkle-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: oklch(0.82 0.18 85);
+  animation: twinkle var(--dur, 2s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
