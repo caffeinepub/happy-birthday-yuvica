@@ -150,70 +150,70 @@ const wishCards: WishCard[] = [
     emoji: "💕",
     title: "Wish for Love",
     content:
-      "May your heart always be full of love — love that is returned tenfold, love that surprises you, love that feels safe and joyful and free. You deserve a love story that is even more beautiful than your favourite fairy tale.",
+      "I wish that your heart is always full of love — love that comes back to you, love that feels warm and safe and happy. You deserve a love story more beautiful than your favorite fairy tale. You are so worth it.",
   },
   {
     id: "adventure",
     emoji: "🗺️",
     title: "Wish for Adventure",
     content:
-      "May every year bring new adventures that take your breath away. May you explore new places, meet wonderful souls, and collect memories that become your greatest treasure. Life is a grand adventure — and you are its most daring explorer.",
+      "I wish every year brings you new and exciting things. May you go to new places, meet great people, and make memories that you will always smile about. Life is a big adventure — and you are the best part of it.",
   },
   {
     id: "joy",
     emoji: "😊",
     title: "Wish for Joy",
     content:
-      "May joy find you in the smallest moments — a morning coffee, a good book, a warm hug, a sunset that steals your heart. May joy be your constant companion, showing up even when you least expect it.",
+      "I wish happiness finds you in the little things — a warm cup of tea, a good book, a big hug, a pretty sunset. May you always find reasons to smile, even on the hard days. You deserve to be happy every single day.",
   },
   {
     id: "success",
     emoji: "🏆",
     title: "Wish for Success",
     content:
-      "May every goal you chase become a victory. May every dream you dare to dream become your reality. You have everything it takes to achieve the extraordinary — the talent, the heart, and the fierce determination.",
+      "I wish that every goal you work for becomes yours. Every dream you have can come true. You are smart, strong, and talented — you have everything you need to do great things. I believe in you so much.",
   },
   {
     id: "health",
     emoji: "🌿",
-    title: "Wish for Health",
+    title: "Wish for Good Health",
     content:
-      "May you be blessed with radiant health, boundless energy, and a spirit that never tires. Your well-being is the foundation of all beautiful things to come — guard it, nurture it, and celebrate it.",
+      "I wish you stay healthy, full of energy, and feeling great every day. Taking care of yourself is the most important thing. You matter so much — please always be well. A healthy you means a happy you.",
   },
   {
     id: "magic",
     emoji: "✨",
     title: "Wish for Magic",
     content:
-      "May your life be filled with little magical moments that remind you how extraordinary this world can be. May wonder never leave your eyes. May every day hold at least one tiny miracle just for you.",
+      "I wish your life is full of small, lovely moments that make you feel how wonderful this world is. May you always see the beauty around you. May each day bring at least one little thing that makes you say — wow.",
   },
 ];
 
 const reasons: Reason[] = [
-  { num: 1, text: "Your laugh is pure sunshine — it heals everything." },
+  { num: 1, text: "Your laugh makes everyone feel happy and warm." },
   {
     num: 2,
-    text: "You make every moment more memorable just by being present.",
+    text: "Every moment becomes better just because you are there.",
   },
-  { num: 3, text: "Your creativity knows absolutely no boundaries." },
+  { num: 3, text: "You are so creative and always full of great ideas." },
   {
     num: 4,
-    text: "You have the rare gift of making everyone feel seen and loved.",
+    text: "You make everyone feel cared for and truly seen.",
   },
-  { num: 5, text: "Your style is uniquely, perfectly YOU." },
-  { num: 6, text: "You dream bigger than most people dare to imagine." },
+  { num: 5, text: "Your style is 100% you — and it is perfect." },
+  { num: 6, text: "You dream big and you believe you can do it." },
   {
     num: 7,
-    text: "Your resilience is quietly inspiring to everyone around you.",
+    text: "You are strong even when things are hard — that is amazing.",
   },
   {
     num: 8,
-    text: "You bring out the best in the people who are lucky to know you.",
+    text: "You help people around you be their best selves.",
   },
-  { num: 9, text: "Your eyes hold a universe of wonder, warmth, and wisdom." },
+  { num: 9, text: "Your eyes are full of kindness and wonder." },
   {
     num: 10,
-    text: "Simply put: the world is infinitely better with you in it. 🌍💖",
+    text: "The world is a much better place with you in it. 🌍💖",
   },
 ];
 
@@ -371,7 +371,7 @@ function SurpriseCard({ card, index }: { card: SurpriseCard; index: number }) {
       data-ocid={`surprise.card.${index + 1}`}
       className="flip-card cursor-pointer"
       style={{
-        height: "220px",
+        height: "260px",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(30px)",
         transition: `opacity 0.5s ease ${index * 0.08}s, transform 0.5s ease ${index * 0.08}s`,
@@ -380,37 +380,40 @@ function SurpriseCard({ card, index }: { card: SurpriseCard; index: number }) {
       onKeyDown={(e) => e.key === "Enter" && setFlipped((f) => !f)}
       aria-label={`${card.title} - click to reveal`}
     >
-      <div className={`flip-card-inner ${flipped ? "flipped" : ""}`}>
+      <div
+        className="flip-card-inner"
+        style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
+      >
         {/* Front */}
         <div
-          className="flip-card-front flex flex-col items-center justify-center gap-3 p-5 shadow-card border border-white/60"
+          className="flip-card-front flex flex-col items-center justify-center gap-2 p-3 sm:p-5 shadow-card border border-white/60"
           style={{ background: card.gradient }}
         >
           <div
-            className="text-5xl animate-wiggle"
+            className="text-4xl sm:text-5xl animate-wiggle"
             style={{ animationDelay: `${index * 0.3}s` }}
           >
             {card.emoji}
           </div>
-          <h3 className="font-display text-xl font-bold text-center text-foreground">
+          <h3 className="font-display text-base sm:text-xl font-bold text-center text-foreground leading-tight">
             {card.title}
           </h3>
-          <p className="text-sm text-muted-foreground font-accent text-center">
+          <p className="text-xs sm:text-sm text-muted-foreground font-accent text-center">
             ✨ Tap to reveal ✨
           </p>
         </div>
         {/* Back */}
         <div
-          className="flip-card-back flex flex-col items-center justify-center p-5 shadow-card-hover"
+          className="flip-card-back flex flex-col items-center justify-center p-3 sm:p-5 shadow-card-hover"
           style={{
             background:
               "linear-gradient(135deg, oklch(0.98 0.04 345), oklch(0.96 0.05 295))",
           }}
         >
-          <div className="text-3xl mb-3">{card.emoji}</div>
+          <div className="text-2xl mb-2">{card.emoji}</div>
           <p
-            className="text-center text-sm leading-relaxed font-accent"
-            style={{ color: "oklch(0.3 0.08 320)" }}
+            className="text-center text-xs sm:text-sm leading-relaxed font-accent overflow-y-auto"
+            style={{ color: "oklch(0.3 0.08 320)", maxHeight: "190px" }}
           >
             {card.message}
           </p>
@@ -516,12 +519,18 @@ export default function App() {
 
           {/* "Happy Birthday" */}
           <h1
-            className="animate-shimmer font-display text-5xl sm:text-7xl md:text-8xl font-black leading-tight mb-2"
+            className="font-display text-5xl sm:text-7xl md:text-8xl font-black leading-tight mb-2"
             style={{
               opacity: mounted ? 1 : 0,
               transform: mounted ? "translateY(0)" : "translateY(-30px)",
               transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s",
               letterSpacing: "-0.02em",
+              background:
+                "linear-gradient(135deg, oklch(0.78 0.18 345), oklch(0.68 0.18 300), oklch(0.82 0.18 85))",
+              backgroundSize: "200% auto",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
             Happy Birthday
@@ -560,42 +569,8 @@ export default function App() {
               transition: "opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s",
             }}
           >
-            Today is ALL about YOU, beautiful! 🌟
+            Today is all about you, beautiful 🌸
           </p>
-
-          {/* Birthday cake */}
-          <div
-            className="relative"
-            style={{
-              opacity: mounted ? 1 : 0,
-              transform: mounted ? "scale(1)" : "scale(0.5)",
-              transition:
-                "opacity 0.8s ease 0.9s, transform 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) 0.9s",
-            }}
-          >
-            <img
-              src="/assets/generated/birthday-cake-transparent.dim_400x400.png"
-              alt="Birthday Cake"
-              className="w-56 sm:w-72 animate-float-bounce drop-shadow-2xl"
-              style={{
-                filter: "drop-shadow(0 8px 32px oklch(0.78 0.18 345 / 0.4))",
-              }}
-            />
-            {/* Sparkles around cake */}
-            {(["✨", "⭐", "💫", "✦", "🌟"] as const).map((s, i) => (
-              <div
-                key={`spark-${s}`}
-                className="absolute text-2xl pointer-events-none"
-                style={{
-                  top: `${[10, 5, 80, 70, 20][i]}%`,
-                  left: `${[-15, 100, -20, 105, 45][i]}%`,
-                  animation: `starSpin ${2 + i * 0.4}s ease-in-out ${i * 0.6}s infinite`,
-                }}
-              >
-                {s}
-              </div>
-            ))}
-          </div>
 
           {/* Emoji row */}
           <div
@@ -657,17 +632,17 @@ export default function App() {
                       WebkitTextFillColor: "transparent",
                     }}
                   >
-                    A Letter to Yuvica
+                    A Letter for You
                   </h2>
                 </div>
 
                 <div className="space-y-6">
                   {[
-                    "Dear Yuvica, on this magical day, the whole world pauses to celebrate the incredible person you are. From the moment you wake up to the last star that shines tonight, know that you are deeply loved and cherished beyond words.",
-                    "You have a smile that lights up every room you walk into. Your laugh is contagious, your spirit is free, and your heart is as golden as the sun. There is nobody else quite like you in this entire universe, and that is your superpower.",
-                    "Every year you grow more beautiful — not just on the outside, but in the way you love, the way you dream, and the way you show up for the people around you. You inspire everyone who knows you.",
-                    "Today, may every wish you make come true. May every candle you blow out carry a dream straight to the stars. May every smile you wear today be the beginning of a thousand more joyful moments.",
-                    "Here's to YOU, Yuvica — a girl who deserves all the flowers, all the glitter, all the magic, and every good thing this world has to offer. Happy Birthday, superstar! 🌟",
+                    "Dear Yuvica, today is a very special day — it is your birthday! The whole world is happy because of you. From the moment you open your eyes today, remember that you are loved more than you know. 💖",
+                    "You have a smile that makes every room brighter. Your laugh is the best sound in the world. Your heart is so kind and warm, and there is no one else like you. That is what makes you so special.",
+                    "Every year, you become more lovely — not just on the outside, but in the way you care for others, the way you dream big, and the way you make people around you feel good. You make everyone happy just by being you.",
+                    "Today, I hope all your wishes come true. I hope every smile you give today comes back to you many times over. I hope today is full of fun, love, and all the good things you deserve.",
+                    "Here is to YOU, Yuvica — a girl who deserves all the flowers, all the love, and every happy thing in this world. Have the most wonderful birthday! 🌟",
                   ].map((para, i) => (
                     <p
                       key={para.slice(0, 30)}
@@ -697,7 +672,13 @@ export default function App() {
                       WebkitTextFillColor: "transparent",
                     }}
                   >
-                    With all the love in the universe 💖
+                    With all my love 💖
+                  </p>
+                  <p
+                    className="font-display text-xl font-semibold mt-1"
+                    style={{ color: "oklch(0.62 0.18 345)" }}
+                  >
+                    From your best friend, Garvit 🌸
                   </p>
                 </div>
               </div>
@@ -798,7 +779,7 @@ export default function App() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  10 Reasons Why Yuvica is Simply the Best 💫
+                  Some of the Reasons Why You are the Best 💫
                 </h2>
               </div>
 
@@ -863,10 +844,10 @@ export default function App() {
               Make a Wish! 🕯️
             </h2>
             <p
-              className="font-accent text-lg"
+              className="font-display text-2xl font-bold"
               style={{ color: "oklch(0.5 0.08 320)" }}
             >
-              Six beautiful wishes, just for Yuvica 🌟
+              Beautiful Wishes Just for You 🌟
             </p>
           </div>
 
@@ -1014,11 +995,10 @@ export default function App() {
                 margin: "0 auto 2.5rem",
               }}
             >
-              No matter where you are, no matter what you're doing today — know
-              that you are being celebrated, cherished, and loved. You are a
-              gift to this world, Yuvica. May this birthday be the beginning of
-              your most beautiful chapter yet. Here's to you, here's to love,
-              here's to endless possibilities.{" "}
+              No matter where you are today, know that you are loved and
+              celebrated. You are such a gift to everyone around you, Yuvica.
+              May this birthday be the start of the best time of your life. Here
+              is to you, here is to love, here is to all the good things ahead.{" "}
               <strong>Happy Birthday! 🎂💖✨</strong>
             </p>
 
@@ -1105,16 +1085,7 @@ export default function App() {
             className="font-accent text-sm"
             style={{ color: "oklch(0.55 0.08 320)" }}
           >
-            © {new Date().getFullYear()}.{" "}
-            <a
-              href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:opacity-80 transition-opacity"
-              style={{ color: "oklch(0.62 0.18 345)" }}
-            >
-              Built with love using caffeine.ai
-            </a>
+            Built by Garvit 💖
           </p>
         </footer>
       </main>

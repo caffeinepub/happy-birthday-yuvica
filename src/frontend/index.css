@@ -280,6 +280,7 @@ html {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: 1.25rem;
+  overflow: hidden;
 }
 
 .flip-card-back {
