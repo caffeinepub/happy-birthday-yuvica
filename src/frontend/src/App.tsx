@@ -722,17 +722,28 @@ export default function App() {
               transition: "opacity 0.7s ease, transform 0.7s ease",
             }}
           >
-            <h2
-              className="font-display text-4xl sm:text-5xl font-black mb-3"
-              style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.78 0.18 345), oklch(0.68 0.18 300), oklch(0.82 0.18 85))",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Click for a Birthday Surprise! 🎁
+            <h2 className="font-display text-4xl sm:text-5xl font-black mb-3">
+              <span
+                style={{
+                  background:
+                    "linear-gradient(135deg, oklch(0.78 0.18 345), oklch(0.68 0.18 300), oklch(0.82 0.18 85))",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Click for a Birthday Surprise!
+              </span>
+              <span
+                style={{
+                  WebkitTextFillColor: "initial",
+                  background: "none",
+                  WebkitBackgroundClip: "unset",
+                }}
+              >
+                {" "}
+                🎁
+              </span>
             </h2>
             <p
               className="font-accent text-lg"
@@ -769,17 +780,28 @@ export default function App() {
                   transition: "opacity 0.7s ease, transform 0.7s ease",
                 }}
               >
-                <h2
-                  className="font-display text-3xl sm:text-4xl font-black mb-8"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, oklch(0.68 0.18 300), oklch(0.78 0.18 345))",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  Some of the Reasons Why You are the Best 💫
+                <h2 className="font-display text-3xl sm:text-4xl font-black mb-8">
+                  <span
+                    style={{
+                      background:
+                        "linear-gradient(135deg, oklch(0.68 0.18 300), oklch(0.78 0.18 345))",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
+                    Some of the Reasons Why You are the Best
+                  </span>
+                  <span
+                    style={{
+                      WebkitTextFillColor: "initial",
+                      background: "none",
+                      WebkitBackgroundClip: "unset",
+                    }}
+                  >
+                    {" "}
+                    💫
+                  </span>
                 </h2>
               </div>
 
@@ -831,17 +853,28 @@ export default function App() {
               transition: "opacity 0.7s ease, transform 0.7s ease",
             }}
           >
-            <h2
-              className="font-display text-4xl sm:text-5xl font-black mb-3"
-              style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.82 0.18 85), oklch(0.78 0.18 345), oklch(0.68 0.18 300))",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Make a Wish! 🕯️
+            <h2 className="font-display text-4xl sm:text-5xl font-black mb-3">
+              <span
+                style={{
+                  background:
+                    "linear-gradient(135deg, oklch(0.82 0.18 85), oklch(0.78 0.18 345), oklch(0.68 0.18 300))",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Make a Wish!
+              </span>
+              <span
+                style={{
+                  WebkitTextFillColor: "initial",
+                  background: "none",
+                  WebkitBackgroundClip: "unset",
+                }}
+              >
+                {" "}
+                🕯️
+              </span>
             </h2>
             <p
               className="font-display text-2xl font-bold"
